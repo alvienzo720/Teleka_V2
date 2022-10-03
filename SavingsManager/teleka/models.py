@@ -175,3 +175,35 @@ class Member(models.Model):
 	def __str__(self):
 		return self.firstname + " " + self.lastname
 
+
+class Deposit(models.Model):
+	STATUS = (
+		('ACTIVE','ACTIVE'),
+		('PENDING', 'PENDING'),
+		)
+	member_name = models.ForeignKey(Member, on_delete=models.CASCADE, null=True, blank=True)
+	account_number = models.CharField(max_length=200, null=True)
+	amount = models.IntegerField(null=True)
+	date_of_transaction = models.DateTimeField(auto_now=True, null=True)
+	deposited_by = models.CharField(max_length=200, null=True)
+	status = models.CharField(max_length=200, choices=STATUS)
+
+	def __str__(self):
+		return self.member_name.firstname + " " + self.member_name.lastname + " " + str(self.amount) + " UGX" + " " + str(self.date_of_transaction)
+
+
+class Withdraw(models.Model):
+	STATUS = (
+		('ACTIVE','ACTIVE'),
+		('PENDING', 'PENDING'),
+		)
+	member_name = models.ForeignKey(Member, on_delete=models.CASCADE, null=True, blank=True)
+	account_number = models.CharField(max_length=200, null=True)
+	amount = models.IntegerField(null=True)
+	date_of_transaction = models.DateTimeField(auto_now=True, null=True)
+	withdrawn_by = models.CharField(max_length=200, null=True)
+	status = models.CharField(max_length=200, choices=STATUS)
+
+	def __str__(self):
+		return self.member_name.firstname + " " + self.member_name.lastname + " " + str(self.amount) + " UGX" + " " + str(self.date_of_transaction)
+
