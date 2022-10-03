@@ -75,6 +75,7 @@ class CreateMember(LoginRequiredMixin,SuccessMessageMixin,CreateView):
     
     success_message = "Member Created Successfully !"
 
+
 class ViewMembers(LoginRequiredMixin, SuccessMessageMixin,ListView):
     model= User
     model = Member
@@ -119,7 +120,32 @@ class MemberDetails(LoginRequiredMixin, DetailView):
     context_object_name = 'member'
     template_name = 'teleka/memberDetails.html'
 
+class CreateDeposit(LoginRequiredMixin,SuccessMessageMixin,CreateView):
+
+    model = Deposit
+    fields = '__all__'
+    template_name = 'teleka/createDeposit.html'
+    success_url = reverse_lazy('view-members')
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(CreateDeposit, self).form_valid(form)
+    
+    success_message = "Deposit Successful !"
 
 
+
+class ViewDeposit(LoginRequiredMixin, SuccessMessageMixin,ListView):
+    model= User
+    model = Deposit
+    context_object_name = 'deposits'
+    template_name = 'teleka/viewDeposits.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['deposits'] = context['deposits']    #.filter(user=self.request.user)
+
+        
+        return context
 
 
