@@ -38,7 +38,7 @@
                                                 <th>Status</th>
                                                 <th></th>
                                                 <th></th>
-                                                <th></th>
+
 
                                             </tr>
                                         </thead>
@@ -51,9 +51,11 @@
                                                 <td>{{deposit.date_of_transaction}}</td>
                                                 <td>{{deposit.deposited_by}}</td>
                                                 <td>{{deposit.status}}</td>
-                                                <td><a href="#"><i class="ti-pencil-alt text-primary"></i></a></td>
-                                                <td><a href="#"><i class="ti-trash text-primary"></i></a></td>
-                                                <td><a href="#"><i class="ti-eye text-primary"></i></a></td>
+                                                <td><a href="{% url 'deposit-update' deposit.id %}"><i
+                                                            class="ti-pencil-alt text-primary"></i></a></td>
+                                                <td><a href="{% url 'deposit-delete' deposit.id %}"><i
+                                                            class="ti-trash text-primary"></i></a></td>
+
 
                                             </tr>
                                             {% endfor %}
