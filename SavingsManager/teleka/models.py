@@ -178,7 +178,7 @@ class Member(models.Model):
 
 class Deposit(models.Model):
 	STATUS = (
-		('ACTIVE','ACTIVE'),
+		('COMPLETE','COMPLETE'),
 		('PENDING', 'PENDING'),
 		)
 	member_name = models.ForeignKey(Member, on_delete=models.CASCADE, null=True, blank=True)
@@ -194,7 +194,7 @@ class Deposit(models.Model):
 
 class Withdraw(models.Model):
 	STATUS = (
-		('ACTIVE','ACTIVE'),
+		('COMPLETE','COMPLETE'),
 		('PENDING', 'PENDING'),
 		)
 	member_name = models.ForeignKey(Member, on_delete=models.CASCADE, null=True, blank=True)

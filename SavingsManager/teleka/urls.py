@@ -17,7 +17,12 @@ urlpatterns = [
     path('create-deposit/',CreateDeposit.as_view(),name='create-deposit'),
     path('view-deposits/',ViewDeposit.as_view(), name='view-deposits'),
     path('deposit-update/<int:pk>/', DepositUpdate.as_view(), name='deposit-update'),
-     path('deposit-delete/<int:pk>/', DepositDelete.as_view(), name='deposit-delete'),
+    path('deposit-delete/<int:pk>/', DepositDelete.as_view(), name='deposit-delete'),
+    path('create-withdraw/',CreateWithdraw.as_view(),name='create-withdraw'),
+    path('view-withdraws/',ViewWithdraw.as_view(), name='view-withdraws'),
+    path('withdraw-update/<int:pk>/', WithdrawUpdate.as_view(), name='withdraw-update'),
+    path('withdraw-delete/<int:pk>/', WithdrawDelete.as_view(), name='withdraw-delete'),
+
 
     ]
 
