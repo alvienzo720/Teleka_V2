@@ -15,7 +15,9 @@ urlpatterns = [
     path('member-delete/<int:pk>/', MemberDelete.as_view(), name='member-delete'),
     path('member/<int:pk>/', MemberDetails.as_view(), name='member'),
     path('create-deposit/',CreateDeposit.as_view(),name='create-deposit'),
-    path('view-deposits/',ViewDeposit.as_view(),name='view-deposits'),
+    path('view-deposits/',ViewDeposit.as_view(), name='view-deposits'),
+    path('deposit-update/<int:pk>/', DepositUpdate.as_view(), name='deposit-update'),
+     path('deposit-delete/<int:pk>/', DepositDelete.as_view(), name='deposit-delete'),
 
     ]
 

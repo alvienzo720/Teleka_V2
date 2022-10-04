@@ -125,7 +125,7 @@ class CreateDeposit(LoginRequiredMixin,SuccessMessageMixin,CreateView):
     model = Deposit
     fields = '__all__'
     template_name = 'teleka/createDeposit.html'
-    success_url = reverse_lazy('view-members')
+    success_url = reverse_lazy('view-deposits')
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -149,3 +149,23 @@ class ViewDeposit(LoginRequiredMixin, SuccessMessageMixin,ListView):
         return context
 
 
+class DepositUpdate(LoginRequiredMixin,SuccessMessageMixin,UpdateView):
+    model= User
+    model = Deposit
+    fields = [
+       "member_name", "account_number", "amount", "deposited_by", "status"
+    ]
+    template_name = 'teleka/createDeposit.html'
+    success_url = reverse_lazy('view-deposits')
+    success_message = "Deposit Updated Successfully !"
+
+
+class DepositDelete(LoginRequiredMixin, DeleteView):
+    model = Deposit
+    context_object_name = 'deposit'
+    success_url = reverse_lazy('view-deposits')
+    template_name = 'teleka/depositConfirm.html'
+
+    def get_success_url(self):
+        messages.success(self.request, "Deposit Deleted Succesfully !")
+        return reverse('view-deposits')
