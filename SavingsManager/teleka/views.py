@@ -115,10 +115,12 @@ class MemberDelete(LoginRequiredMixin, DeleteView):
         messages.success(self.request, "Member Deleted Succesfully !")
         return reverse('view-members')
 
+
 class MemberDetails(LoginRequiredMixin, DetailView):
     model = Member
     context_object_name = 'member'
     template_name = 'teleka/memberDetails.html'
+
 
 class CreateDeposit(LoginRequiredMixin,SuccessMessageMixin,CreateView):
 
@@ -169,3 +171,53 @@ class DepositDelete(LoginRequiredMixin, DeleteView):
     def get_success_url(self):
         messages.success(self.request, "Deposit Deleted Succesfully !")
         return reverse('view-deposits')
+
+
+class CreateWithdraw(LoginRequiredMixin,SuccessMessageMixin,CreateView):
+
+    model = Withdraw
+    fields = '__all__'
+    template_name = 'teleka/createWithdraw.html'
+    success_url = reverse_lazy('view-withdraws')
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(CreateWithdraw, self).form_valid(form)
+    
+    success_message = "Withdraw Successful !"
+
+
+class ViewWithdraw(LoginRequiredMixin, SuccessMessageMixin,ListView):
+    model= User
+    model = Withdraw
+    context_object_name = 'withdraws'
+    template_name = 'teleka/viewWithdraws.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['withdraws'] = context['withdraws']    #.filter(user=self.request.user)
+
+        
+        return context
+
+
+class WithdrawUpdate(LoginRequiredMixin,SuccessMessageMixin,UpdateView):
+    model= User
+    model = Withdraw
+    fields = [
+       "member_name", "account_number", "amount", "withdrawn_by", "status"
+    ]
+    template_name = 'teleka/createWithdraw.html'
+    success_url = reverse_lazy('view-withdraws')
+    success_message = "Withdraw Updated Successfully !"
+
+
+class WithdrawDelete(LoginRequiredMixin, DeleteView):
+    model = Withdraw
+    context_object_name = 'withdraws'
+    success_url = reverse_lazy('view-withdraws')
+    template_name = 'teleka/withdrawConfirm.html'
+
+    def get_success_url(self):
+        messages.success(self.request, "Withdraw Deleted Succesfully !")
+        return reverse('view-withdraws')
