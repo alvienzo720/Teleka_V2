@@ -207,3 +207,21 @@ class Withdraw(models.Model):
 	def __str__(self):
 		return self.member_name.firstname + " " + self.member_name.lastname + " " + str(self.amount) + " UGX" + " " + str(self.date_of_transaction)
 
+
+
+class Loan(models.Model):
+		STATUS = (
+		('COMPLETE','COMPLETE'),
+		('PENDING', 'PENDING'),
+		)
+		member_name = models.ForeignKey(Member, on_delete=models.CASCADE, null=True, blank=True)
+		account_number = models.CharField(max_length=200, null=True)
+		amount = models.IntegerField(null=True)
+		date_of_loan_application = models.DateTimeField(auto_now=True, null=True)
+		date_of_repayemnt = models.DateTimeField(auto_now=False, null=True)
+		status = models.CharField(max_length=200, choices=STATUS)
+		collateral1 = models.CharField(max_length=200, null=True)
+		collateral2 = models.CharField(max_length=200, null=True)
+
+
+	
