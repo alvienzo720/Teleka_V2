@@ -222,6 +222,10 @@ class Loan(models.Model):
 		status = models.CharField(max_length=200, choices=STATUS)
 		collateral1 = models.CharField(max_length=200, null=True)
 		collateral2 = models.CharField(max_length=200, null=True)
+		reason = models.TextField(max_length=1000, null=True)
+
+		def __str__(self):
+			retrun self.member_name.firstname + " " + self.member_name.lastname + " " + str(self.amount) + " UGX" + " " + str(self.date_of_loan_application)
 
 
 	
