@@ -214,18 +214,27 @@ class Loan(models.Model):
 		('COMPLETE','COMPLETE'),
 		('PENDING', 'PENDING'),
 		)
+
+		REPAY_PERIOD = (
+		('DAYS','DAYS'),
+		('MONTHS', 'MONTHS'),
+		('YEARS', 'YEARS'),
+		)
+
 		member_name = models.ForeignKey(Member, on_delete=models.CASCADE, null=True, blank=True)
 		account_number = models.CharField(max_length=200, null=True)
-		amount = models.IntegerField(null=True)
+		amount = models.CharField(max_length=200, null=True)
 		date_of_loan_application = models.DateTimeField(auto_now=True, null=True)
-		date_of_repayemnt = models.DateTimeField(auto_now=False, null=True)
+		date_of_repayemnt = models.DateTimeField(auto_now=True, null=True)
+		intrest_rate = models.CharField(max_length=200, null=True)
+		repay_in = models.CharField(max_length=200, choices=REPAY_PERIOD)
 		status = models.CharField(max_length=200, choices=STATUS)
 		collateral1 = models.CharField(max_length=200, null=True)
 		collateral2 = models.CharField(max_length=200, null=True)
 		reason = models.TextField(max_length=1000, null=True)
 
 		def __str__(self):
-			retrun self.member_name.firstname + " " + self.member_name.lastname + " " + str(self.amount) + " UGX" + " " + str(self.date_of_loan_application)
+			return self.member_name.firstname + " " + self.member_name.lastname + " " + str(self.amount) + " UGX" + " " + str(self.date_of_loan_application)
 
 
 	

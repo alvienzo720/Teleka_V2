@@ -221,3 +221,19 @@ class WithdrawDelete(LoginRequiredMixin, DeleteView):
     def get_success_url(self):
         messages.success(self.request, "Withdraw Deleted Succesfully !")
         return reverse('view-withdraws')
+
+
+
+
+class CreateLoan(LoginRequiredMixin,SuccessMessageMixin,CreateView):
+
+    model = Loan
+    fields = '__all__'
+    template_name = 'teleka/createLoan.html'
+    success_url = reverse_lazy('view-withdraws')
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(CreateLoan, self).form_valid(form)
+    
+    success_message = "Loan Created Successful !"
