@@ -22,6 +22,8 @@ urlpatterns = [
     path('view-withdraws/',ViewWithdraw.as_view(), name='view-withdraws'),
     path('withdraw-update/<int:pk>/', WithdrawUpdate.as_view(), name='withdraw-update'),
     path('withdraw-delete/<int:pk>/', WithdrawDelete.as_view(), name='withdraw-delete'),
+    path('create-loan/',CreateLoan.as_view(),name='create-loan'),
+    
 
 
     ]
