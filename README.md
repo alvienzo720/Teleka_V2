@@ -4,7 +4,7 @@ This is a project  built on SAAS Python Django Framework to help manage small Sa
 
 ## Login Page
 
-<img width="652" alt="Login" src="https://user-images.githubusercontent.com/36954843/195980591-7eed3936-0b83-4030-8cd8-03a8e3f80947.png">
+<img width="1280" alt="Screen Shot 2022-10-15 at 1 07 14 PM" src="https://user-images.githubusercontent.com/36954843/195980819-4fabc765-a879-437a-a75e-d62c59ee7e7a.png">
 
 ## Register Page
 
@@ -12,7 +12,8 @@ This is a project  built on SAAS Python Django Framework to help manage small Sa
 
 ## Dashbaord
 
-<img width="642" alt="Dashboard" src="https://user-images.githubusercontent.com/36954843/195980658-44489193-0223-4d3f-8f4a-c4e9acd83e3d.png">
+<img width="1268" alt="Screen Shot 2022-10-15 at 1 07 43 PM" src="https://user-images.githubusercontent.com/36954843/195980855-de14d7c7-36c5-4152-8d12-91af046d8a97.png">
+
 
 ## Warnings
 
