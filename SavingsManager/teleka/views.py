@@ -230,7 +230,7 @@ class CreateLoan(LoginRequiredMixin,SuccessMessageMixin,CreateView):
     model = Loan
     fields = '__all__'
     template_name = 'teleka/createLoan.html'
-    success_url = reverse_lazy('view-withdraws')
+    success_url = reverse_lazy('view-loans')
 
     def form_valid(self, form):
         form.instance.user = self.request.user
