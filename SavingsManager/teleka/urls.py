@@ -25,6 +25,7 @@ urlpatterns = [
     path('create-loan/',CreateLoan.as_view(),name='create-loan'),
     path('view-loans/',ViewLoan.as_view(), name='view-loans'),
     path('loan-update/<int:pk>/', LoanUpdate.as_view(), name='loan-update'),
+    path('loan-delete/<int:pk>/', LoanDelete.as_view(), name='loan-delete'),
     
 
 

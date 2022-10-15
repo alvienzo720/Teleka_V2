@@ -262,3 +262,14 @@ class LoanUpdate(LoginRequiredMixin,SuccessMessageMixin,UpdateView):
     template_name = 'teleka/createLoan.html'
     success_url = reverse_lazy('view-loans')
     success_message = "Loan Updated Successfully !"
+
+
+class LoanDelete(LoginRequiredMixin, DeleteView):
+    model = Loan
+    context_object_name = 'loans'
+    success_url = reverse_lazy('view-loans')
+    template_name = 'teleka/confrimLoan.html'
+
+    def get_success_url(self):
+        messages.success(self.request, "Loan Deleted Succesfully !")
+        return reverse('view-loans')
