@@ -237,3 +237,39 @@ class CreateLoan(LoginRequiredMixin,SuccessMessageMixin,CreateView):
         return super(CreateLoan, self).form_valid(form)
     
     success_message = "Loan Created Successful !"
+
+
+class ViewLoan(LoginRequiredMixin, SuccessMessageMixin,ListView):
+    model= User
+    model = Loan
+    context_object_name = 'loans'
+    template_name = 'teleka/viewLoan.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['loans'] = context['loans']    #.filter(user=self.request.user)
+
+        
+        return context
+
+class LoanUpdate(LoginRequiredMixin,SuccessMessageMixin,UpdateView):
+    model= User
+    model = Loan
+    fields = [
+       "member_name", "account_number", "amount",
+       "intrest_rate", "repay_in", "status", "collateral1", "collateral2", "reason"
+    ]
+    template_name = 'teleka/createLoan.html'
+    success_url = reverse_lazy('view-loans')
+    success_message = "Loan Updated Successfully !"
+
+
+class LoanDelete(LoginRequiredMixin, DeleteView):
+    model = Loan
+    context_object_name = 'loans'
+    success_url = reverse_lazy('view-loans')
+    template_name = 'teleka/confrimLoan.html'
+
+    def get_success_url(self):
+        messages.success(self.request, "Loan Deleted Succesfully !")
+        return reverse('view-loans')

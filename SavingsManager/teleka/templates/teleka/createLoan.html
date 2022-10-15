@@ -11,7 +11,7 @@
             <div class="col-md-12 grid-margin">
                 <div class="row">
                     <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                        <h3 class="font-weight-bold">Create Loan <span class="text-primary">Sacco Member</span>
+                        <h3 class="font-weight-bold">Initiate A Loan <span class="text-primary">Sacco Member</span>
                         </h3>
                         <h6 class="font-weight-normal mb-0">A Sacco member will belong to your SACCO and we assume they
                             agree to your terms and Conditions</h6>
@@ -40,13 +40,13 @@
                                 {{form.amount |as_crispy_field}}
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
                         <div class="col">
                             <div class="form-group">
                                 {{form.intrest_rate |as_crispy_field}}
                             </div>
                         </div>
+                    </div>
+                    <div class="row">
                         <div class="col">
                             <div class="form-group">
                                 {{form.repay_in |as_crispy_field}}
@@ -71,8 +71,10 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="form-group">
-                            {{form.reason |as_crispy_field}}
+                        <div class="col">
+                            <div class="form-group">
+                                {{form.reason |as_crispy_field}}
+                            </div>
                         </div>
                     </div>
                     <div class="row">
