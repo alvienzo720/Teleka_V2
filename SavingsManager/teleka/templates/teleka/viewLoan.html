@@ -57,7 +57,8 @@
                                                 <td>{{loan.status}}</td>
                                                 <td>{{loan.collateral1}}</td>
                                                 <td>{{loan.collateral2}}</td>
-                                                <td><a href="#"><i class="ti-pencil-alt text-primary"></i></a></td>
+                                                <td><a href="{% url 'loan-update' loan.id %}"><i
+                                                            class="ti-pencil-alt text-primary"></i></a></td>
                                                 <td><a href="#"><i class="ti-trash text-primary"></i></a></td>
 
 

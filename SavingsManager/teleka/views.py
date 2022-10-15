@@ -252,4 +252,13 @@ class ViewLoan(LoginRequiredMixin, SuccessMessageMixin,ListView):
         
         return context
 
-
+class LoanUpdate(LoginRequiredMixin,SuccessMessageMixin,UpdateView):
+    model= User
+    model = Loan
+    fields = [
+       "member_name", "account_number", "amount",
+       "intrest_rate", "repay_in", "status", "collateral1", "collateral2", "reason"
+    ]
+    template_name = 'teleka/createLoan.html'
+    success_url = reverse_lazy('view-loans')
+    success_message = "Loan Updated Successfully !"
