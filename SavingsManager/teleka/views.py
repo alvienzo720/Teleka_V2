@@ -237,3 +237,19 @@ class CreateLoan(LoginRequiredMixin,SuccessMessageMixin,CreateView):
         return super(CreateLoan, self).form_valid(form)
     
     success_message = "Loan Created Successful !"
+
+
+class ViewLoan(LoginRequiredMixin, SuccessMessageMixin,ListView):
+    model= User
+    model = Loan
+    context_object_name = 'loans'
+    template_name = 'teleka/viewLoan.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['loans'] = context['loans']    #.filter(user=self.request.user)
+
+        
+        return context
+
+

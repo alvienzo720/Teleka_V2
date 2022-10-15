@@ -23,6 +23,7 @@ urlpatterns = [
     path('withdraw-update/<int:pk>/', WithdrawUpdate.as_view(), name='withdraw-update'),
     path('withdraw-delete/<int:pk>/', WithdrawDelete.as_view(), name='withdraw-delete'),
     path('create-loan/',CreateLoan.as_view(),name='create-loan'),
+    path('view-loans/',ViewLoan.as_view(), name='view-loans'),
     
 
 
