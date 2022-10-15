@@ -33,9 +33,12 @@
                                                 <th>Full Name</th>
                                                 <th>Account Number</th>
                                                 <th>Amount</th>
-                                                <th>Date | Time </th>
-                                                <th>Withdrawn By </th>
+                                                <th>Date of Application</th>
+                                                <th>Repayment Date</th>
+                                                <th>Intrest Rate</th>
                                                 <th>Status</th>
+                                                <th>Collateral 1</th>
+                                                <th>Collateral 2</th>
                                                 <th></th>
                                                 <th></th>
 
@@ -43,18 +46,19 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {% for withdraw in withdraws %}
+                                            {% for loan in loans %}
                                             <tr>
-                                                <td>{{withdraw.member_name}}</td>
-                                                <td>{{withdraw.account_number}}</td>
-                                                <td>{{withdraw.amount}} UGX</td>
-                                                <td>{{withdraw.date_of_transaction}}</td>
-                                                <td>{{withdraw.withdrawn_by}}</td>
-                                                <td>{{withdraw.status}}</td>
-                                                <td><a href="{% url 'withdraw-update' withdraw.id %}"><i
-                                                            class="ti-pencil-alt text-primary"></i></a></td>
-                                                <td><a href="{% url 'withdraw-delete' withdraw.id %}"><i
-                                                            class="ti-trash text-primary"></i></a></td>
+                                                <td>{{loan.member_name}}</td>
+                                                <td>{{loan.account_number}}</td>
+                                                <td>{{loan.amount}} UGX</td>
+                                                <td>{{loan.date_of_loan_application}}</td>
+                                                <td>{{loan.date_of_repayemnt}}</td>
+                                                <td>{{loan.intrest_rate}}</td>
+                                                <td>{{loan.status}}</td>
+                                                <td>{{loan.collateral1}}</td>
+                                                <td>{{loan.collateral2}}</td>
+                                                <td><a href="#"><i class="ti-pencil-alt text-primary"></i></a></td>
+                                                <td><a href="#"><i class="ti-trash text-primary"></i></a></td>
 
 
                                             </tr>
