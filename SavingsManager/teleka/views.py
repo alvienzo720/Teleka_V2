@@ -55,8 +55,21 @@ class RegisterPage(FormView):
 class DashboardView(LoginRequiredMixin,ListView):
     model = Member
     model = User
+    model = Loan
+    model = Withdraw
+    model = Deposit
     context_object_name = 'dashboard'
     template_name = 'teleka/dashboard.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['members_count'] = Member.objects.all().count()
+        context['withdraw_count'] = Withdraw.objects.all().count()
+        context['deposit_count'] = Deposit.objects.all().count()
+        context['loan_count'] = Loan.objects.all().count()
+
+
+        return context
     
     
     def get_success_url(Self):
@@ -230,7 +243,7 @@ class CreateLoan(LoginRequiredMixin,SuccessMessageMixin,CreateView):
     model = Loan
     fields = '__all__'
     template_name = 'teleka/createLoan.html'
-    success_url = reverse_lazy('view-withdraws')
+    success_url = reverse_lazy('view-loans')
 
     def form_valid(self, form):
         form.instance.user = self.request.user
