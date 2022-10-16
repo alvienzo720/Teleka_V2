@@ -286,3 +286,31 @@ class LoanDelete(LoginRequiredMixin, DeleteView):
     def get_success_url(self):
         messages.success(self.request, "Loan Deleted Succesfully !")
         return reverse('view-loans')
+
+
+class PendingLoan(LoginRequiredMixin,ListView):
+    model= User
+    model = Loan
+    context_object_name = 'pending_loans'
+    template_name = 'teleka/pendingLoans.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['pending_loans'] = Loan.objects.all().filter(status='PENDING')
+
+        
+        return context
+
+
+class CompletedLoan(LoginRequiredMixin,ListView):
+    model= User
+    model = Loan
+    context_object_name = 'completed_loans'
+    template_name = 'teleka/completedLoans.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['completed_loans'] = Loan.objects.all().filter(status='COMPLETE')
+
+        
+        return context
