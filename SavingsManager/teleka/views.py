@@ -300,3 +300,17 @@ class PendingLoan(LoginRequiredMixin,ListView):
 
         
         return context
+
+
+class CompletedLoan(LoginRequiredMixin,ListView):
+    model= User
+    model = Loan
+    context_object_name = 'completed_loans'
+    template_name = 'teleka/completedLoans.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['completed_loans'] = Loan.objects.all().filter(status='COMPLETE')
+
+        
+        return context
