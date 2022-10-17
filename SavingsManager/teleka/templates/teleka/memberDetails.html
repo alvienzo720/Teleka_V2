@@ -3,6 +3,151 @@
 {% load static %}
 {% block content %}
 {% include 'teleka/header.html' %}
+<style>
+    body {
+        color: #6F8BA4;
+        margin-top: 20px;
+    }
+
+    .section {
+        padding: 100px 0;
+        position: relative;
+    }
+
+    .gray-bg {
+        background-color: #f5f5f5;
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    img {
+        vertical-align: middle;
+        border-style: none;
+    }
+
+    /* About Me 
+---------------------*/
+    .about-text h3 {
+        font-size: 45px;
+        font-weight: 700;
+        margin: 0 0 6px;
+    }
+
+    @media (max-width: 767px) {
+        .about-text h3 {
+            font-size: 35px;
+        }
+    }
+
+    .about-text h6 {
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+
+    @media (max-width: 767px) {
+        .about-text h6 {
+            font-size: 18px;
+        }
+    }
+
+    .about-text p {
+        font-size: 18px;
+        max-width: 450px;
+    }
+
+    .about-text p mark {
+        font-weight: 600;
+        color: #20247b;
+    }
+
+    .about-list {
+        padding-top: 10px;
+    }
+
+    .about-list .media {
+        padding: 5px 0;
+    }
+
+    .about-list label {
+        color: #20247b;
+        font-weight: 600;
+        width: 88px;
+        margin: 0;
+        position: relative;
+    }
+
+    .about-list label:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 11px;
+        width: 1px;
+        height: 12px;
+        background: #20247b;
+        -moz-transform: rotate(15deg);
+        -o-transform: rotate(15deg);
+        -ms-transform: rotate(15deg);
+        -webkit-transform: rotate(15deg);
+        transform: rotate(15deg);
+        margin: auto;
+        opacity: 0.5;
+    }
+
+    .about-list p {
+        margin: 0;
+        font-size: 15px;
+    }
+
+    @media (max-width: 991px) {
+        .about-avatar {
+            margin-top: 30px;
+        }
+    }
+
+    .about-section .counter {
+        padding: 22px 20px;
+        background: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 0 30px rgba(31, 45, 61, 0.125);
+    }
+
+    .about-section .counter .count-data {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .about-section .counter .count {
+        font-weight: 700;
+        color: #20247b;
+        margin: 0 0 5px;
+    }
+
+    .about-section .counter p {
+        font-weight: 600;
+        margin: 0;
+    }
+
+    mark {
+        background-image: linear-gradient(rgba(252, 83, 86, 0.6), rgba(252, 83, 86, 0.6));
+        background-size: 100% 3px;
+        background-repeat: no-repeat;
+        background-position: 0 bottom;
+        background-color: transparent;
+        padding: 0;
+        color: currentColor;
+    }
+
+    .theme-color {
+        color: #fc5356;
+    }
+
+    .dark-color {
+        color: #20247b;
+    }
+</style>
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="container py-5">
@@ -16,143 +161,91 @@
                     </nav>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="card mb-4">
-                        <div class="card-body text-center">
-                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
-                                alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
-                            <h5 class="my-3">{{member.firstname}} {{member.lastname}}</h5>
-                            <p class="text-muted mb-1">Account No: {{member.account_number}}</p>
-                            <p class="text-muted mb-4">Address: {{member.district}}, {{member.village}}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-8">
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <p class="mb-0">Full Name</p>
-                                </div>
-                                <div class="col-sm-9">
-                                    <p class="text-muted mb-0">{{member.firstname}} {{member.lastname}}</p>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <p class="mb-0">Email</p>
-                                </div>
-                                <div class="col-sm-9">
-                                    <p class="text-muted mb-0">{{member.email}}</p>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <p class="mb-0">Phone</p>
-                                </div>
-                                <div class="col-sm-9">
-                                    <p class="text-muted mb-0">{{member.phone}}</p>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <p class="mb-0">ID Number</p>
-                                </div>
-                                <div class="col-sm-9">
-                                    <p class="text-muted mb-0">{{member.id_number}}</p>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <p class="mb-0">Address</p>
-                                </div>
-                                <div class="col-sm-9">
-                                    <p class="text-muted mb-0">{{member.district}}, {{member.village}}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="card mb-4 mb-md-0">
-                                <div class="card-body">
-                                    <p class="mb-4"><span class="text-primary font-italic me-1">assigment</span>
-                                        Project
-                                        Status
-                                    </p>
-                                    <p class="mb-1" style="font-size: .77rem;">Web Design</p>
-                                    <div class="progress rounded" style="height: 5px;">
-                                        <div class="progress-bar" role="progressbar" style="width: 80%"
-                                            aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+            <section class="section about-section gray-bg" id="about">
+                <div class="container">
+                    <div class="row align-items-center flex-row-reverse">
+                        <div class="col-lg-6">
+                            <div class="about-text go-to">
+                                <h3 class="dark-color">{{member.firstname}} {{member.lastname}}</h3>
+                                <span>Account No:</span>
+                                <h6 class="theme-color lead">{{member.account_number}}</h6>
+                                <div class="row about-list">
+                                    <div class="col-md-6">
+                                        <div class="media">
+                                            <label>Birthday</label>
+                                            <p>{{member.date_of_birth}}</p>
+                                        </div>
+                                        <div class="media">
+                                            <label>Gender</label>
+                                            <p>{{member.gender}}</p>
+                                        </div>
+                                        <div class="media">
+                                            <label>District</label>
+                                            <p>{{member.district}}</p>
+                                        </div>
+                                        <div class="media">
+                                            <label>Village</label>
+                                            <p>{{member.village}}</p>
+                                        </div>
                                     </div>
-                                    <p class="mt-4 mb-1" style="font-size: .77rem;">Website Markup</p>
-                                    <div class="progress rounded" style="height: 5px;">
-                                        <div class="progress-bar" role="progressbar" style="width: 72%"
-                                            aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <p class="mt-4 mb-1" style="font-size: .77rem;">One Page</p>
-                                    <div class="progress rounded" style="height: 5px;">
-                                        <div class="progress-bar" role="progressbar" style="width: 89%"
-                                            aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <p class="mt-4 mb-1" style="font-size: .77rem;">Mobile Template</p>
-                                    <div class="progress rounded" style="height: 5px;">
-                                        <div class="progress-bar" role="progressbar" style="width: 55%"
-                                            aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <p class="mt-4 mb-1" style="font-size: .77rem;">Backend API</p>
-                                    <div class="progress rounded mb-2" style="height: 5px;">
-                                        <div class="progress-bar" role="progressbar" style="width: 66%"
-                                            aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="col-md-6">
+                                        <div class="media">
+                                            <label>Email</label>
+                                            <p>{{member.email}}</p>
+                                        </div>
+                                        <div class="media">
+                                            <label>Phone</label>
+                                            <p>{{member.phone}}</p>
+                                        </div>
+                                        <div class="media">
+                                            <label>{{member.id_type}}</label>
+                                            <p>{{member.id_number}}</p>
+                                        </div>
+                                        <div class="media">
+                                            <label>Status</label>
+                                            <p>{{member.status}}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="col-lg-6">
+                            <div class="about-avatar">
+                                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" title="" alt="">
+                            </div>
+                        </div>
                     </div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="card mb-4 mb-md-0">
-                                <div class="card-body">
-                                    <p class="mb-4"><span class="text-primary font-italic me-1">assigment</span>
-                                        Project
-                                        Status
-                                    </p>
-                                    <p class="mb-1" style="font-size: .77rem;">Web Design</p>
-                                    <div class="progress rounded" style="height: 5px;">
-                                        <div class="progress-bar" role="progressbar" style="width: 80%"
-                                            aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <p class="mt-4 mb-1" style="font-size: .77rem;">Website Markup</p>
-                                    <div class="progress rounded" style="height: 5px;">
-                                        <div class="progress-bar" role="progressbar" style="width: 72%"
-                                            aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <p class="mt-4 mb-1" style="font-size: .77rem;">One Page</p>
-                                    <div class="progress rounded" style="height: 5px;">
-                                        <div class="progress-bar" role="progressbar" style="width: 89%"
-                                            aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <p class="mt-4 mb-1" style="font-size: .77rem;">Mobile Template</p>
-                                    <div class="progress rounded" style="height: 5px;">
-                                        <div class="progress-bar" role="progressbar" style="width: 55%"
-                                            aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <p class="mt-4 mb-1" style="font-size: .77rem;">Backend API</p>
-                                    <div class="progress rounded mb-2" style="height: 5px;">
-                                        <div class="progress-bar" role="progressbar" style="width: 66%"
-                                            aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
+                    <div class="counter">
+                        <div class="row">
+                            <div class="col-6 col-lg-3">
+                                <div class="count-data text-center">
+                                    <h6 class="count h3" data-to="500" data-speed="500">500,000 UGX</h6>
+                                    <p class="m-0px font-w-600">Balance</p>
+                                </div>
+                            </div>
+                            <div class="col-6 col-lg-3">
+                                <div class="count-data text-center">
+                                    <h6 class="count h3" data-to="150" data-speed="150">150</h6>
+                                    <p class="m-0px font-w-600">Deposits Completed</p>
+                                </div>
+                            </div>
+                            <div class="col-6 col-lg-3">
+                                <div class="count-data text-center">
+                                    <h6 class="count h3" data-to="850" data-speed="850">50</h6>
+                                    <p class="m-0px font-w-600">Withdraws Made</p>
+                                </div>
+                            </div>
+                            <div class="col-6 col-lg-3">
+                                <div class="count-data text-center">
+                                    <h6 class="count h3" data-to="190" data-speed="190">1,900,000 UGX</h6>
+                                    <p class="m-0px font-w-600">Loans Amount</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
+
         </div>
     </div>
     <footer class="footer">
