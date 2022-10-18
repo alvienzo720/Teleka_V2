@@ -130,9 +130,15 @@ class MemberDelete(LoginRequiredMixin, DeleteView):
 
 
 class MemberDetails(LoginRequiredMixin, DetailView):
+    model = Loan
     model = Member
     context_object_name = 'member'
     template_name = 'teleka/memberDetails.html'
+
+
+  
+
+
 
 
 class CreateDeposit(LoginRequiredMixin,SuccessMessageMixin,CreateView):
