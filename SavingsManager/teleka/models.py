@@ -225,7 +225,7 @@ class Loan(models.Model):
 		account_number = models.CharField(max_length=200, null=True)
 		amount = models.CharField(max_length=200, null=True)
 		date_of_loan_application = models.DateTimeField(auto_now=True, null=True)
-		date_of_repayemnt = models.DateTimeField(auto_now=True, null=True)
+		date_of_repayemnt = models.DateField(auto_now=False,auto_now_add=False,null=True)
 		intrest_rate = models.CharField(max_length=200, null=True)
 		repay_in = models.CharField(max_length=200, choices=REPAY_PERIOD)
 		status = models.CharField(max_length=200, choices=STATUS)
@@ -235,6 +235,25 @@ class Loan(models.Model):
 
 		def __str__(self):
 			return self.member_name.firstname + " " + self.member_name.lastname + " " + str(self.amount) + " UGX" + " " + str(self.date_of_loan_application)
+
+
+	
+class RepayLoan(models.Model):
+		STATUS = (
+		('COMPLETE','COMPLETE'),
+		('PENDING', 'PENDING'),
+		)
+
+		member_name = models.ForeignKey(Member, on_delete=models.CASCADE, null=True, blank=True)
+		account_number = models.CharField(max_length=200, null=True)
+		amount = models.CharField(max_length=200, null=True)
+		date_of_loan_repayment = models.DateTimeField(auto_now=True, null=True)
+		repay_in = models.CharField(max_length=200, null=True)
+		paid_by = models.CharField(max_length=200, null=True)
+		status = models.CharField(max_length=200, choices=STATUS)
+
+		def __str__(self):
+			return self.member_name.firstname + " " + self.member_name.lastname + " " + str(self.amount) + " UGX" + " " + str(self.date_of_loan_repayment)
 
 
 	
