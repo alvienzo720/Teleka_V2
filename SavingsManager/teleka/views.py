@@ -111,7 +111,7 @@ class MemberUpdate(LoginRequiredMixin,SuccessMessageMixin,UpdateView):
        "district", "county", "subcounty", "parish", "village", "account_number",
        "opening_balance", "email", "phone", "next_of_keen_first_name", 
        "next_of_keen_last_name", "next_of_keen_phone", "next_of_keen_relationship",
-       "status"
+       "status","member_photo","member_id_att","next_of_keen_id"
     ]
     template_name = 'teleka/createMember.html'
     success_url = reverse_lazy('view-members')
@@ -276,7 +276,8 @@ class LoanUpdate(LoginRequiredMixin,SuccessMessageMixin,UpdateView):
     model = Loan
     fields = [
        "member_name", "account_number", "amount",
-       "intrest_rate", "repay_in", "status", "collateral1", "collateral2", "reason"
+       "intrest_rate", "repay_in", "status", "collateral1", "collateral2", "reason",
+       "collateral1_attachements", "collateral2_attachements"
     ]
     template_name = 'teleka/createLoan.html'
     success_url = reverse_lazy('view-loans')
