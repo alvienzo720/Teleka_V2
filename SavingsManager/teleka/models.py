@@ -172,8 +172,8 @@ class Member(models.Model):
 	next_of_keen_relationship = models.CharField(max_length=200, null=True)
 	status = models.CharField(max_length=200, null=True, choices=STATUS)
 	member_photo = models.ImageField(upload_to='uploads/memberPhotos/% Y/% m/% /d' )
-	member_id = models.ImageField(upload_to='uploads/memberIDs/% Y/% m/% /d' )
-	next_of_keen_first_name = models.ImageField(upload_to='uploads/nextofKeenIDs/% Y/% m/% /d' )
+	member_id_att = models.ImageField(upload_to='uploads/memberIDs/% Y/% m/% /d' )
+	next_of_keen_id = models.ImageField(upload_to='uploads/nextofKeenIDs/% Y/% m/% /d' )
 
 
 
