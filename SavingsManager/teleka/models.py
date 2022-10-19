@@ -171,6 +171,11 @@ class Member(models.Model):
 	next_of_keen_phone = models.CharField(max_length=200, null=True)
 	next_of_keen_relationship = models.CharField(max_length=200, null=True)
 	status = models.CharField(max_length=200, null=True, choices=STATUS)
+	member_photo = models.ImageField(upload_to='uploads/memberPhotos/' )
+	member_id_att = models.ImageField(upload_to='uploads/memberIDs/' )
+	next_of_keen_id = models.ImageField(upload_to='uploads/nextofKeenIDs/' )
+
+
 
 	def __str__(self):
 		return self.firstname + " " + self.lastname
@@ -232,6 +237,9 @@ class Loan(models.Model):
 		collateral1 = models.CharField(max_length=200, null=True)
 		collateral2 = models.CharField(max_length=200, null=True)
 		reason = models.TextField(max_length=1000, null=True)
+		collateral1_attachements = models.ImageField(upload_to='uploads/Collatreals/' )
+		collateral2_attachements = models.ImageField(upload_to='uploads/Collatreals/' )
+		
 
 		def __str__(self):
 			return self.member_name.firstname + " " + self.member_name.lastname + " " + str(self.amount) + " UGX" + " " + str(self.date_of_loan_application)
