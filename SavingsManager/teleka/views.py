@@ -67,6 +67,8 @@ class DashboardView(LoginRequiredMixin,ListView):
         context['withdraw_count'] = Withdraw.objects.all().count()
         context['deposit_count'] = Deposit.objects.all().count()
         context['loan_count'] = Loan.objects.all().count()
+        context['recent_loans'] = Loan.objects.all()
+        
 
 
         return context
@@ -134,10 +136,6 @@ class MemberDetails(LoginRequiredMixin, DetailView):
     model = Member
     context_object_name = 'member'
     template_name = 'teleka/memberDetails.html'
-
-
-  
-
 
 
 
