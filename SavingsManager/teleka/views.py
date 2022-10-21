@@ -137,6 +137,13 @@ class MemberDetails(LoginRequiredMixin, DetailView):
     context_object_name = 'member'
     template_name = 'teleka/memberDetails.html'
 
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['member'] = context['member'].objects.all()
+        
+
+
+
 
 
 class CreateDeposit(LoginRequiredMixin,SuccessMessageMixin,CreateView):

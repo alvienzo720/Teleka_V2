@@ -104,7 +104,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  {% for loan in recent_loans %}
+                  {% for loan in recent_loans|slice:"5" %}
                   <tr>
                     <td>{{loan.member_name}}</td>
                     <td class="font-weight-bold">{{loan.amount}} UGX</td>
