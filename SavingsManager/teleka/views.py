@@ -139,7 +139,9 @@ class MemberDetails(LoginRequiredMixin, DetailView):
 
     # def get_context_data(self, **kwargs):
     #     context = super().get_context_data(**kwargs)
-    #     context['member'] = context['member'].objects.all()
+    #     loans = Loan.objects.get(id='1')
+    #     member_loan_count = loans.count()
+    #     context['member_loan_count'] = context['member_loan_count']
         
 
 
